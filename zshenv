@@ -1,0 +1,10 @@
+export RCS=true
+export HISTFILE=~/.zhist
+export INC_APPEND_HISTORY=true
+export EXTENDED_HISTORY=true
+# export HIST_VERIFY=true
+# export SHARE_HISTORY=true
+export SAVEHIST=500000
+export HISTSIZE=500000
+export CORRECT_IGNORE_FILE='.*'
+export DISABLE_MAGIC_FUNCTIONS=true
