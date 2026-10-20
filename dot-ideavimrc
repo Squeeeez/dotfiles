@@ -1,0 +1,102 @@
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-commentary'
+Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/argtextobj.vim'
+Plug 'kana/vim-textobj-user'
+Plug 'kana/vim-textobj-function'
+Plug 'vim-matchit'
+Plug 'chrisbra/matchit'
+Plug 'michaeljsmith/vim-indent-object'
+
+let mapleader=","
+let g:argtextobj_pairs="(:),{:},<:>,[:]"
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_primary_color = '#e64553'
+let g:qs_secondary_color = '#fe640b'
+let g:qs_accepted_chars = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '{', '}', '[', ']', '<', '>']
+
+set number
+set commentary
+set highlightedyank
+set ideajoin
+set ideamarks
+set functiontextobj
+set hlsearch
+set incsearch
+set ignorecase
+set wrapscan
+set clipboard=unnamedplus,unnamed,ideaput
+set showcmd
+set showmode
+set scrolloff=5
+
+set matchit
+set sneak
+set quickscope " needs to be after sneak
+set surround
+set easymotion
+set acejump " Ctrl + ;, Ctrl + Shift + ;, Ctrl + Alt + ;
+
+nnoremap \e :e ~/.ideavimrc<CR>
+nnoremap \r :action IdeaVim.ReloadVimRc.reload<CR>
+nnoremap \s :w<CR>
+nnoremap ZZ :w<CR>
+
+nmap <leader><c-x> <Action>(ToggleDistractionFreeMode)
+nmap <c-z> <Action>(ToggleZenMode)
+
+nmap <c-\> <Action>(SplitVertically)
+nmap <c--> <Action>(SplitHorizontally)
+nmap <c-=> <Action>(Unsplit)
+nmap <leader>o <Action>(OptimizeImports)
+nmap ge <Action>(GotoNextError)
+nmap gE <Action>(GotoPreviousError)
+nmap <leader>r <Action>(Refactorings.QuickListPopupAction)
+nmap <leader>R <Action>(RenameElement)
+
+nmap g] <Action>(GotoImplementation)
+nmap g[ <Action>(GotoSuperMethod)
+
+"vnoremap < <gv
+"vnoremap > >gv
+nmap [[ <Action>(MethodUp)
+nmap ]] <Action>(MethodDown)
+
+nmap <leader>zc <Action>(CollapseAllRegions)
+nmap <leader>zo <Action>(ExpandAllRegions)
+"nnoremap <leader>F <Plug>(easymotion-s)
+"nnoremap <leader>f <Plug>(easymotion-f)
+map <leader>F <Plug>(easymotion-s)
+map <leader>f <Plug>(easymotion-f)
+
+nnoremap <leader><c-t>   :NERDTree<CR>
+nnoremap <c-t>   :NERDTreeToggle<CR>
+
+nmap <leader>s <Action>(GotoRelated)
+nmap <leader>h <Action>(CallHierarchy)
+nmap <leader>b <Action>(ShowNavBar)
+nmap <c-s> <Action>(FileStructurePopup)
+"nmap <c-o> <Action>(GotoSymbol)
+nmap gc <Action>(GotoClass)
+nmap gi <Action>(GotoImplementation)
+nmap gd <Action>(GotoDeclaration)
+nmap gp <Action>(GotoSuperMethod)
+nmap <leader>gt <Action>(GotoTest)
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
+
+"nmap <leader>r <Action>(ContextRun)
+nmap <leader>c <Action>(RunClass)
+"nmap <leader>f <Action>(ChooseRunConfiguration)
+nmap <leader>t <Action>(ActivateRunToolWindow)
+nmap <leader>u <Action>(Rerun)
+
+nmap <leader>gf <Action>(Javascript.Linters.EsLint.Fix)
+
+nnoremap <leader>m va{V
+
+imap <F8> _<Esc>mzwbg~iw`zi<Del>
+imap <S-F8> _<Esc>mzwbgUiw`zi<Del>
+
+"nmap <C-CR> <Action>(EditorSplitLine)
